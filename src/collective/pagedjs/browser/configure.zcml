@@ -11,6 +11,17 @@
       layer="collective.pagedjs.interfaces.ICollectivePagedjsLayer"
       />
 
+
+  <browser:viewlet
+    name="collective.pagedjs.viewlet"
+    for="*"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+    layer="collective.pagedjs.interfaces.ICollectivePagedjsLayer"
+    permission="zope2.View"
+    class=".viewlets.PagedJS"
+    template="viewlet.pt"
+    />
+
   <!-- Publish static files -->
   <plone:static
       name="collective.pagedjs"
