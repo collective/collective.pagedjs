@@ -1,4 +1,7 @@
 
+<div>
+    <a href="#" id="this-print">PRINT THIS</a>
+</div>
 
 <div id="pagedjs-header">
     This is the header content
@@ -57,11 +60,37 @@
     }
 </style>
 
+
 <script type="text/javascript">
-    $(document).ready(function() {
-        var s = document.createElement("script");
-        s.type = "text/javascript";
-        s.src = "https://unpkg.com/pagedjs/dist/paged.polyfill.js";
-        $('head').append(s)
+
+    window.PagedConfig = {
+        auto: false
+    };
+
+    window.addEventListener("load", function () {
+        if (document.querySelector('#this-print')) {
+            document.querySelector('#this-print').addEventListener("click", preview);
+        }
     });
+
+
+    async function preview() {
+        await window.PagedPolyfill.preview();
+        window.print();
+
+    }
+</script>
+
+<script>
+    window.__define = window.define;
+    window.__require = window.require;
+    window.define = undefined;
+    window.require = undefined;
+</script>
+<script type="application/javascript" type="module" src="https://unpkg.com/pagedjs@0.1.42/dist/paged.polyfill.js"></script>
+<script>
+    window.define = window.__define;
+    window.require = window.__require;
+    window.__define = undefined;
+    window.__require = undefined;
 </script>
