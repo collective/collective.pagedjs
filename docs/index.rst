@@ -1,0 +1,5 @@
+==================
+collective.pagedjs
+==================
+
+User documentation
