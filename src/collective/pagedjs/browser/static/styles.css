@@ -1,3 +1,47 @@
 /*
  * PagedJS.css
  */
+
+@media screen {
+    #pagedjs-header,
+    #pagedjs-footer {
+        display: none
+    }   
+}
+
+@media print {
+    * {
+        color: red !important;
+        font-family: Arial !important;
+        font-weight: bold !important;
+    }
+
+    #pagedjs-header {
+        position: running(header);
+    }
+
+    #pagedjs-header {
+        position: running(footer);
+    }
+
+    @page {
+        size: a4;
+        margin: 2cm;
+        border: 1px solid blue !important;
+    }
+
+    @page {
+        @top-left {
+            content: element(header);
+        }
+
+        @top-right {
+            content: element(footer);
+        }
+
+        @bottom-center {
+            content: "HELLO PLONE"
+            border: 1px solid green;
+        }
+    }
+}
