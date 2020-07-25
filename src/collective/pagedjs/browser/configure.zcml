@@ -23,6 +23,7 @@
     />
 
   <browser:page
+     for="*"
      name="pagedjs-styles"
      permission="zope2.View"
      class=".viewlets.PagedJSView"

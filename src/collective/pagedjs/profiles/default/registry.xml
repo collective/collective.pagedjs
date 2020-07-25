@@ -4,5 +4,11 @@
     i18n:domain="collective.pagedjs">
 
 <!-- -*- extra stuff goes here -*- -->
-
+    <records prefix="plone.resources/pagedjs"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+        <value key="js">https://unpkg.com/pagedjs@0.1.42/dist/paged.polyfill.js</value>
+        <value key="css">
+          <element>@@pagedjs-styles</element>
+        </value>
+    </records>
 </registry>

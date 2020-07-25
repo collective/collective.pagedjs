@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" tal:attributes="href string:${view/portal_url}/@@pagedjs-styles">
-
 <div>
     <a href="#" id="this-print">PRINT THIS</a>
 </div>
@@ -15,6 +13,21 @@
 
 <script type="text/javascript">
 
+    $(document).ready(function() {
+        var head = $('head');
+
+        var script = document.createElement('script');
+        script.type = "application/javascript";
+        script.src = "https://unpkg.com/pagedjs@0.1.42/dist/paged.polyfill.js";
+        head.append(script);
+
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "@@pagedjs-styles";
+        head.append(link);
+    });
+
     window.PagedConfig = {
         auto: false
     };
@@ -29,19 +42,5 @@
         await window.PagedPolyfill.preview();
 
     }
-</script>
-
-<script>
-    window.__define = window.define;
-    window.__require = window.require;
-    window.define = undefined;
-    window.require = undefined;
-</script>
-<script type="application/javascript" type="module" src="https://unpkg.com/pagedjs@0.1.42/dist/paged.polyfill.js"></script>
-<script>
-    window.define = window.__define;
-    window.require = window.__require;
-    window.__define = undefined;
-    window.__require = undefined;
 </script>
 
